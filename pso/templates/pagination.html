@@ -1,0 +1,25 @@
+<!-- HTML code for pagination -->
+
+<div class="row" id="pagination-row">
+    <div class="panel panel-default">
+            <div class="pagination">
+                <span class="step-links">
+                    {% if all_questions.has_previous %}
+                        <a href="?page={{ all_questions.previous_page_number }}">
+                            <span class="glyphicon glyphicon-chevron-left"></span>
+                        </a>
+                    {% endif %}
+
+                    <span class="current">
+                        {{ all_questions.number }} of {{ all_questions.paginator.num_pages }}
+                    </span>
+
+                    {% if all_questions.has_next %}
+                        <a href="?page={{ all_questions.paginator.num_pages }}">
+                            <span class="glyphicon glyphicon-chevron-right"></span>
+                        </a>
+                    {% endif %}
+                </span>
+            </div>
+    </div>
+</div>

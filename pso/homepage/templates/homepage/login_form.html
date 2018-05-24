@@ -1,0 +1,41 @@
+<!-- HTML code for logging into user account -->
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}PSO - Login{% endblock %}
+
+{% block extra_head %}
+<link href="{% static 'css/navbar.css' %}" rel="stylesheet" type="text/css"/>
+<style>
+    body {
+        margin-top: 75px;
+        background-color: #F0F2EF;
+    }
+
+    .account-data {
+        margin-left: 80px;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- top navigation bar -->
+{% include 'navbar.html' %}
+
+<div class="row">
+    <div class="col-md-4 account-data">
+        <h2> Login to your account </h2><br>
+        <form class="form-horizontal" role="form" action="" method="post">
+            {% csrf_token %}
+            {% include 'form_template.html' %}
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-success">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

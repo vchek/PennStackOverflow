@@ -1,0 +1,24 @@
+body {
+    margin-top: 55px;
+}
+
+.profile-box {
+    padding-left: 70px;
+}
+
+.question-stat-box {
+    padding-left: 70px;
+}
+
+.section_header {
+    background-color: #B80C09;
+    width:25%;
+    height: 3px;
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+
+#question-list, #answer-list {
+    padding-right: 50px;
+}

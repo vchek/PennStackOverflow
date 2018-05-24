@@ -1,0 +1,87 @@
+body {
+    background-color: #F0F2EF;
+    margin-top: 55px;
+}
+
+/* CSS for jumbotron on homepage */
+.jumbotron {
+    background-color: #0E6BA8;
+    height: 350px;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.jumbo-left {
+    padding-left: 100px;
+}
+
+.jumbo-right {
+    padding-top: 20px;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* CSS for dynamic tabs */
+.right-tabs .nav {
+    float: right;
+    border-bottom: 0px;
+}
+.right-tabs .nav li {
+    float: left
+}
+
+.right-tabs .tab-content {
+    float: left;
+    border-top: 1px solid #ddd;
+    margin-top: -1px;
+}
+
+/* CSS for right panel on homepage */
+#info-panel {
+    margin-right: 50px;
+    margin-top: 20px;
+    height: 300px;
+}
+
+/* CSS for tab content */
+.tab-content {
+    padding-left: 80px;
+    width: 100%;
+}
+
+#question-panel {
+    margin-right: 0px;
+    margin-top: 20px;
+    padding-top: 0px;
+    height: auto;
+}
+
+.ui-widget {
+    margin-top: 15px;
+    margin-bottom: 0px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.search {
+    color:red;
+}
+
+::placeholder {
+    font-family: 'Roboto', sans-serif;
+}
+
+/* CSS for pagination at bottom */
+#pagination-row {
+    margin-right: 50px;
+    margin-left: 80px;
+    text-align: center;
+}
+
+/* CSS for displaying questions */
+.num_answers {
+    text-align: center;
+}
+
+.divider {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}

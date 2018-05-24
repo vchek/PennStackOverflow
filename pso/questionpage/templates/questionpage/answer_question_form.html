@@ -1,0 +1,38 @@
+<!-- HTML for editing an answer page -->
+
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}Edit an Answer - PSO{% endblock %}
+
+{% block extra_head %}
+<link href="{% static 'css/navbar.css' %}" rel="stylesheet" type="text/css"/>
+<style>
+    body {
+        margin-top: 60px;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+{% include 'navbar.html' %}
+{% autoescape off %}
+
+<div class="row">
+    <div style="margin-left:50px;" class="col-md-4">
+        <h2> Edit an Answer </h2>
+        <form class="form-horizontal" role="form" action="" method="post">
+            {% csrf_token %}
+            {% include 'form_template.html' %}
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-success">Submit</button>
+                    <a href="/" class="btn btn-default">Back to the Homepage</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endautoescape %}
+
+{% endblock %}

@@ -1,0 +1,100 @@
+<!-- HTML code for Contact Us page -->
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}PSO - Contact Us{% endblock %}
+
+{% block extra_head %}
+<link href="{% static 'css/navbar.css' %}" type='text/css' rel='stylesheet' />
+<link href="{% static 'homepage/css/contactus.css' %}" type='text/css' rel='stylesheet' />
+{% endblock %}
+
+{% block content %}
+<!-- top navigation bar -->
+{% include 'navbar.html' %}
+
+<!-- informational panel -->
+<div class="row">
+    <div class="col-md-6 contact_info">
+        <h1 class="display-4">Contact Penn Stack Overflow</h1>
+        <hr class="section_header">
+        <br>
+        <p><b>Need help with navigating or using the site?</b><br>
+            Check out our <a href="{% url 'homepage:faq' %}">FAQ</a> page to see if you can find your answer there.
+            <br><br>
+            <b>Want to share feedback about our products?</b><br>
+            Feel free to contact us with a message about your suggestions for the site.<br>
+            We are always looking to improve the experience for users like you.
+            <br><br>
+            <b>What's in a great support request?</b><br>
+            Provide us with as much essential information as possible.<br>
+            Include any links that are related to your problem.
+        </p>
+    </div>
+    <div class="col-md-4 center">
+        <br><br>
+        <center>
+            <img class="img-responsive contact_image" src="{% static 'contact_image.jpg' %}">
+        </center>
+    </div>
+</div>
+<br><br>
+
+<!-- message form -->
+<div class="col-md-8 contact_form">
+    <form action="#" method="post">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="form_name">Firstname *</label>
+                    <input type="text" name="firstname" class="form-control" placeholder="Please enter your firstname" required="required" data-error="Firstname is required.">
+                    <div class="help-block with-errors"></div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="form_lastname">Lastname *</label>
+                    <input type="text" name="lastname" class="form-control" placeholder="Please enter your lastname" required="required" data-error="Lastname is required.">
+                    <div class="help-block with-errors"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="form_email">Email *</label>
+                    <input type="email" name="email" class="form-control" placeholder="Please enter your email" required="required" data-error="Valid email is required.">
+                    <div class="help-block with-errors"></div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="form_phone">Phone</label>
+                    <input type="tel" name="phone" class="form-control" placeholder="Please enter your phone">
+                    <div class="help-block with-errors"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label for="form_message">Message *</label>
+                    <textarea name="message" class="form-control" placeholder="Message for me" rows="4" required="required" data-error="Please,leave us a message."></textarea>
+                    <div class="help-block with-errors"></div>
+                </div>
+            </div>
+            <div class="col-md-12" action="">
+                {% csrf_token %}
+                <input type="submit" class="btn btn-success btn-send" value="Send message">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <p class="text-muted"><strong>*</strong> These fields are required.</p>
+            </div>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

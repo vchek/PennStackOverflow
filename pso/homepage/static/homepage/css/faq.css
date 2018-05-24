@@ -1,0 +1,35 @@
+body {
+    margin-top: 75px;
+}
+
+/* CSS for title */
+.title_underline {
+    background-color: #B80C09;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    width:50%;
+    height: 3px;
+}
+
+/* CSS for content */
+.left_content {
+    padding-left: 100px;
+}
+
+.right_content {
+    padding-right: 100px;
+}
+
+.section_header {
+    background-color: #B80C09;
+    width:25%;
+    height: 3px;
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+
+.question_title {
+    margin-top: 0px;
+    padding-left: 0px;
+}

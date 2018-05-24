@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+
+   <head>
+    {% load static %}
+   <script type="text/javascript" src="{% static 'userpage/js/fusioncharts.js' %}"></script>
+   <script type="text/javascript" src="{% static 'userpage/js/themes/fusioncharts.theme.fint.js' %}"></script>
+</head>
+<body>
+    <div id="chart-1">{{ output|safe }}</div>
+</body>
+    <a href="/" class="btn btn-default">Back to the Homepage</a>
+    <a href="." class="btn btn-default">Back to Profile</a>
+
+
+{% endblock %}

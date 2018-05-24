@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %} User Profile {% endblock %}
+
+{% block extra_head %}
+<link href="{% static 'css/navbar.css' %}" rel="stylesheet" type="text/css"/>
+<link href="{% static 'userpage/css/profile.css' %}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block content %}
+
+<!-- top navigation bar -->
+{% include 'navbar.html' %}
+
+    <form method="post" action="" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="mypicture"/>
+        <input type="submit" name="submit" value="Upload" />
+    </form>
+
+{% endblock %}

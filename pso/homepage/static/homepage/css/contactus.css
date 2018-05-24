@@ -1,0 +1,30 @@
+body {
+    margin-top: 75px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.contact_info {
+    margin-left: 80px;
+}
+
+.contact_form {
+    margin-left: 60px;
+    padding-left: 20px;
+}
+
+.contact_image {
+    height: 300px;
+    width: auto;
+}
+
+.section_header {
+    background-color: #B80C09;
+    width:25%;
+    height: 3px;
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-bottom: 10px;
+}

@@ -1,0 +1,123 @@
+<!-- HTML code for displaying a particular question -->
+
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}{{ question.title }}{% endblock %}
+
+
+{% block extra_head %}
+<link href="{% static 'css/navbar.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'questionpage/css/view_question.css' %}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+
+{% block content %}
+
+<!-- top navigation bar -->
+{% include 'navbar.html' %}
+
+<!-- question title -->
+<div class="row question_title">
+    <h3 class="display-1">{{ question.title }}</h3>
+    <hr class="title_underline">
+</div>
+
+<!-- question content -->
+<div class="row">
+    <!-- vote bar for question -->
+    <div class="col-md-2 vote_bar">
+        <h3>
+            <a href="{% url 'questionpage:vote' text_id=question.id score_change="+1" text_type='question' %}" class="glyphicon glyphicon-triangle-top"></a>
+            <br />&nbsp;{{question.score}}<br />
+            <a href="{% url 'questionpage:vote' text_id=question.id score_change="-1" text_type="question" %}" class="glyphicon glyphicon-triangle-bottom"></a>
+        </h3>
+
+        {% if user.is_authenticated and user == question.author %}
+            <a href="{% url 'questionpage:edit_question' question.id %}" class="glyphicon glyphicon-pencil"></a>
+            <a href="{% url 'questionpage:delete_question' question.id %}" class="glyphicon glyphicon-trash"></a>
+        {% endif %}
+    </div>
+
+    <!-- question body -->
+    <div class="col-md-6">
+        <div class="card card-body">
+            <br>
+            <h4>{% autoescape off %}{{ question.body }}{% endautoescape %}</h4>
+            <br>
+            <h4>Tags:
+                {% for t in question.tags_as_list %}
+                    <a href="/search?query=[{{ t }}]">#{{ t }}</a>
+                {% endfor %}
+            </h4>
+        </div>
+    </div>
+    <!-- question info panel on right -->
+    <div class="col-md-4">
+        <br>
+        <h4>asked on: {{ question.date_posted }}</h4>
+        <h4>asked by: {{ question.author }}</h4><br>
+    </div>
+</div>
+
+<!-- display answers -->
+<div class="row answer_content">
+    <h3> {{ answers|length }} Answers </h3>
+    <hr class="answer_underline">
+
+    {% for ans in answers %}
+    <div class="row">
+        <!-- answer vote bar -->
+        <div class="col-md-1">
+            <h3>
+                <a href="{% url 'questionpage:vote' text_id=ans.id score_change="+1" text_type="answer" %}" class="glyphicon glyphicon-triangle-top"></a>
+                <br />&nbsp;{{ans.score}}<br />
+                <a href="{% url 'questionpage:vote' text_id=ans.id score_change="-1" text_type="answer" %}" class="glyphicon glyphicon-triangle-bottom"></a>
+            </h3>
+            {% if user.is_authenticated and user == ans.author %}
+                <a href="{% url 'questionpage:edit_answer' question.id ans.id %}" class="glyphicon glyphicon-pencil"></a>
+                <a href="{% url 'questionpage:delete_answer' question.id ans.id %}" class="glyphicon glyphicon-trash"></a>
+            {% endif %}
+        </div>
+        <!-- answer body -->
+        <div style="padding-left:50px;" class="col-md-6">
+            <div class="card card-body">
+                <br>
+                <h4>{% autoescape off %}{{ ans.body }}{% endautoescape %}</h4>
+            </div>
+        </div>
+        <!-- answer info panel on right -->
+        <div class="col-md-4">
+            <br>
+            <h4>Answered on: {{ ans.date_posted }}</h4>
+            <h4>Answered by: {{ ans.author }}</h4><br>
+        </div>
+    </div>
+    <!-- comments for this particular answer -->
+    <div class="row">
+        <div class="col-md-10 pull-right comments">
+            <hr class="comment_underline">
+            {% for comment in ans.comments.all %}
+                <a href="{% url 'questionpage:vote' text_id=comment.id score_change="+1" text_type="comment" %}" class="glyphicon glyphicon-thumbs-up"></a>
+                {{ comment.score }}
+                <a href="{% url 'questionpage:vote' text_id=comment.id score_change="-1" text_type="comment" %}" class="glyphicon glyphicon-thumbs-down"></a>
+                {% if user.is_authenticated and user == comment.author %}
+                    <a href="{% url 'questionpage:delete_comment' question.id ans.id comment.id %}" class="glyphicon glyphicon-trash"></a>
+                {% endif %}
+                &nbsp;&nbsp;&nbsp; {{ comment.body }}
+                <b>- Posted by {{ comment.author }} on {{ comment.date_posted }}</b>
+                <hr class="comment_underline">
+            {% endfor %}
+
+            <!-- form to submit comment -->
+            {% include 'questionpage/submitcommentbox.html' %}
+        </div>
+    </div>
+    <hr class="answer_underline">
+    {% endfor %}
+    <!-- form to submit answer -->
+    {% if user.is_authenticated %}
+        {% include 'questionpage/submitanswerbox.html' %}
+    {% endif %}
+</div>
+{% endblock %}

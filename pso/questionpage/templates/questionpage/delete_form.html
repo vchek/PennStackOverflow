@@ -1,0 +1,43 @@
+<!-- HTML code for displaying delete page -->
+
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}Delete Question - PSO{% endblock %}
+
+{% block extra_head %}
+<link href="{% static 'css/navbar.css' %}" rel="stylesheet" type="text/css">
+<style>
+    body {
+        padding-top: 60px;
+    }
+    .delete-alert {
+        margin-left: 50px;
+        margin-top: 50px;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+{% include 'navbar.html' %}
+
+<div class="row">
+    <div class="col-md-4 delete-alert">
+        <center>
+            <div class="alert alert-warning" role="alert">
+                <h4 class="alert-heading">You're about to delete something!</h4>
+                <hr>
+                <form class="form-horizontal" role="form" action="" method="post">
+                    {% csrf_token %}
+                    {% include 'form_template.html' %}
+                    <div class="form-group">
+                        <p> Are you sure you want to delete this item? </p>
+                        <button type="submit" class="btn btn-success">Delete</button>
+                    </div>
+                </form>
+            </div>
+        </center>
+    </div>
+</div>
+
+{% endblock %}

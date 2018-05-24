@@ -1,0 +1,13 @@
+
+<!-- HTMl code for submit button at bottom of question page -->
+<div>
+    <form class="form-horizontal" role="form" action="{% url 'questionpage:answer' question.id %}" method="post">
+        {% csrf_token %}
+        <div id="answer-form" class="form-group">
+            <h4>Submit an Answer</h4>
+            <textarea name="body" class="form-control" placeholder="My answer..." rows="4" required="required" data-error="No answer detected"></textarea>
+            <div class="help-block with-errors"></div>
+            <button type="submit" class="btn btn-success">Submit</button>
+        </div>
+     </form>
+</div>

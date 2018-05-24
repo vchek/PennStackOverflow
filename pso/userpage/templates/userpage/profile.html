@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}User Profile{% endblock %}
+
+{% block extra_head %}
+<link href="{% static 'css/navbar.css' %}" rel="stylesheet" type="text/css"/>
+<link href="{% static 'userpage/css/profile.css' %}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block content %}
+
+<!-- top navigation bar -->
+{% include 'navbar.html' %}
+<div class="row">
+    <div class="col-md-6 profile-box">
+        <h2>Welcome to {{ user.profile }}! </h2>
+        <hr class="section_header"><br>
+        <div id="profile-image">
+            <img src="{{ user.profile.picture.url }}" class="img-thumbnail" width="250">
+        </div>
+    </div>
+    <div class="col-md-6">
+        <h2>Account Settings</h2>
+        <hr class="section_header">
+        <h4><a href="{% url 'userpage:graph' user %}">View account statistics
+            <span class="glyphicon glyphicon-stats"></span>
+        </a></h4>
+        {% if viewer.is_authenticated and user == viewer %}
+        <h4><a href="{% url 'userpage:change_password' user %}">Change password
+            <span class="glyphicon glyphicon-lock"></span>
+        </a></h4>
+        <h4><a href="{% url 'userpage:change_picture' user%}">Change picture
+            <span class="glyphicon glyphicon-picture"></span>
+            </a></h4>
+        {% endif %}
+    </div>
+
+
+</div>
+<br><br>
+<div class="row">
+    <div class="col-md-6 question-stat-box">
+        <h2>{{ user }}'s Questions</h2>
+        <hr class="section_header">
+        <div id="question-list">
+            <ul class="list-group list-group-flush">
+                {% if not questions %}
+                    <p>You have not written any questions!</p>
+                {% else %}
+                {% for question in questions %}
+                    <li class="list-group-item">
+                        <a href="/questions/{{ question.id }}/">
+                            {{ question.title }}
+                        </a>
+                        - {{ question.date_posted }}
+                    </li>
+                {% endfor %}
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <h2>{{ user }}'s Answers</h2>
+        <hr class="section_header">
+        <div id="answer-list">
+            <ul class="list-group list-group-flush">
+                {% if not answers %}
+                    <p>You have not written any answers!</p>
+                {% else %}
+                {% for answer in answers %}
+                <li class="list-group-item">
+                    <b>{{ answer.question_answered.title }}: </b>
+                    <a href="/questions/{{ answer.question_answered.id }}/">
+                        {{ answer.body | truncatewords:10 }}
+                    </a>
+                    - {{ answer.date_posted }}
+                </li>
+                {% endfor %}
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}

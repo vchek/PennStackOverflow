@@ -1,0 +1,402 @@
+<!-- HTML code for display FAQ page -->
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}PSO - Frequently Asked Questions{% endblock %}
+
+{% block extra_head %}
+<link href="{% static 'css/navbar.css' %}" type='text/css' rel='stylesheet' />
+<link href="{% static 'homepage/css/faq.css' %}" type='text/css' rel='stylesheet' />
+{% endblock %}
+
+{% block content %}
+<!-- top navigation bar -->
+{% include 'navbar.html' %}
+
+<div class="panel">
+    <h1 class="display-1 text-center">Frequently Asked Questons</h1>
+    <hr class="title_underline">
+    <blockquote style="border-left: none;" class="blockquote text-center">
+      <p class="mb-0">No one is dumb who is curious. The people who don't ask
+          questions remain clueless throughout their lives.
+      </p>
+      <footer class="blockquote-footer">Neil deGrasse Tyson</cite></footer>
+    </blockquote>
+</div>
+
+<div class="row">
+    <!-- content in left column -->
+    <div class="col-md-6">
+        <div class="panel panel-body left_content">
+            <h2 class="display-4">Asking</h2>
+            <hr class="section_header">
+
+            <div id="accordion">
+                <!-- what is penn stack overflow -->
+                <div class="card">
+                    <div class="card-header" id="lh_1">
+                        <button class="btn btn-link question_title" data-toggle="collapse" data-target="#lb_1" aria-expanded="true" aria-controls="lb_1">
+                            <h4 class="display-4">What is Penn Stack Overflow?</h4>
+                        </button>
+                    </div>
+                    <div id="lb_1" class="collapse" aria-labelledby="lh_1" data-parent="#accordion">
+                        <div class="card-body">
+                            <p>It's like <a href="http://www.stackoverflow.com">stackoverflow</a> but better in every conceivable way.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- how can I ask a question -->
+                <div class="card">
+                    <div class="card-header" id="lh_6">
+                        <button class="btn btn-link question_title" data-toggle="collapse" data-target="#lb_6" aria-expanded="true" aria-controls="lb_6">
+                            <h4 class="display-4">How can I ask a question?</h4>
+                        </button>
+                    </div>
+                    <div id="lb_6" class="collapse" aria-labelledby="lh_6" data-parent="#accordion">
+                        <div class="card-body">
+                            <p>Once you've registered or logged in, press the post question button on the navigation bar.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- what topics can I ask -->
+                <div class="card">
+                    <div class="card-header" id="lh_2">
+                        <button class="btn btn-link question_title" data-toggle="collapse" data-target="#lb_2" aria-expanded="true" aria-controls="lb_2">
+                            <h4 class="display-4">What kinds of topics can I ask about here?</h4>
+                        </button>
+                    </div>
+                    <div id="lb_2" class="collapse" aria-labelledby="lh_2" data-parent="#accordion">
+                        <div class="card-body">
+                            <p>Anything that's Penn-related! Keep it PG!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- what types of questions should I avoid asking -->
+                <div class="card">
+                    <div class="card-header" id="lh_3">
+                        <button class="btn btn-link question_title" data-toggle="collapse" data-target="#lb_3" aria-expanded="true" aria-controls="lb_3">
+                            <h4 class="display-4">What types of questions should I avoid asking?</h4>
+                        </button>
+                    </div>
+                    <div id="lb_3" class="collapse" aria-labelledby="lh_3" data-parent="#accordion">
+                        <div class="card-body">
+                            <p>No explicit or obscene content. No hate speech. No content that implies Penn Stack Overflow is anything less than an incredible website.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- why are some questions deleted -->
+                <div class="card">
+                    <div class="card-header" id="lh_4">
+                        <button class="btn btn-link question_title" data-toggle="collapse" data-target="#lb_4" aria-expanded="true" aria-controls="lb_4">
+                            <h4 class="display-4">Why are some questions deleted?</h4>
+                        </button>
+                    </div>
+                    <div id="lb_4" class="collapse" aria-labelledby="lh_4" data-parent="#accordion">
+                        <div class="card-body">
+                            <p>If a site admin deems that a question's content is not up to the site's standards, they have authority to remove it.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- why are some questions marked as duplicates -->
+                <div class="card">
+                    <div class="card-header" id="lh_5">
+                        <button class="btn btn-link question_title" data-toggle="collapse" data-target="#lb_5" aria-expanded="true" aria-controls="lb_5">
+                            <h4 class="display-4">Why are some questions marked as duplicates?</h4>
+                        </button>
+                    </div>
+                    <div id="lb_5" class="collapse" aria-labelledby="lh_5" data-parent="#accordion">
+                        <div class="card-body">
+                            <p>If a question is the exact same as another question, it'll get marked as a duplicate.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- what are tags, how do I use tags -->
+                <div class="card">
+                    <div class="card-header" id="lh_7">
+                        <button class="btn btn-link question_title" data-toggle="collapse" data-target="#lb_7" aria-expanded="true" aria-controls="lb_7">
+                            <h4 class="display-4">What are tags and how can I use them?</h4>
+                        </button>
+                    </div>
+                    <div id="lb_7" class="collapse" aria-labelledby="lh_7
+                    " data-parent="#accordion">
+                        <div class="card-body">
+                            <p>You can list keywords associated with your question in the tags section while posting your question. In the search bar, put brackets around a word to search for it as a tag.
+                            This will list any question that has it as a tag.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- what should I do when someone answers my question  -->
+                <div class="card">
+                    <div class="card-header" id="lh_8">
+                        <button class="btn btn-link question_title" data-toggle="collapse" data-target="#lb_8" aria-expanded="true" aria-controls="lb_8">
+                            <h4 class="display-4">What should I do when someone answers my question?</h4>
+                        </button>
+                    </div>
+                    <div id="lb_8" class="collapse" aria-labelledby="lh_8" data-parent="#accordion">
+                        <div class="card-body">
+                            <p>You can upvote their answer if it's helpful, or downvote it if it's not. You can also start a comment thread on their answer, if you need clarification.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="display-4">Answering</h2>
+            <hr class="section_header">
+
+            <div id="accordion">
+                <!-- how do I answer a question -->
+                <div class="card">
+                    <div class="card-header" id="lh_9">
+                        <button class="btn btn-link question_title" data-toggle="collapse" data-target="#lb_9" aria-expanded="true" aria-controls="lb_9">
+                            <h4 class="display-4">How do I answer a question?</h4>
+                        </button>
+                    </div>
+                    <div id="lb_9" class="collapse" aria-labelledby="lh_9" data-parent="#accordion">
+                        <div class="card-body">
+                            <p>You are quite a clever user for asking such an intriguing question. Once you've registered or logged in, you can click on a question to view it. There will be a button that allows you to post an answer to the question.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- can I answer my own question -->
+                <div class="card">
+                    <div class="card-header" id="lh_10">
+                        <button class="btn btn-link question_title" data-toggle="collapse" data-target="#lb_10" aria-expanded="true" aria-controls="lb_10">
+                            <h4 class="display-4">Can I answer my own question?</h4>
+                        </button>
+                    </div>
+                    <div id="lb_10" class="collapse" aria-labelledby="lh_10" data-parent="#accordion">
+                        <div class="card-body">
+                            <p>Yes, or you may edit your question to include the answer you've found.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- how do I write a good answer -->
+                <div class="card">
+                    <div class="card-header" id="lh_11">
+                        <button class="btn btn-link question_title" data-toggle="collapse" data-target="#lb_11" aria-expanded="true" aria-controls="lb_11">
+                            <h4 class="display-4">How do I write a good answer?</h4>
+                        </button>
+                    </div>
+                    <div id="lb_11" class="collapse" aria-labelledby="lh_11" data-parent="#accordion">
+                        <div class="card-body">
+                            <p>Try to be clear and concise. Make sure you know what you're talking about. Throw in a little bit of humor if you want more upvotes.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- how do I reference questions or answers written by others -->
+                <div class="card">
+                    <div class="card-header" id="lh_12">
+                        <button class="btn btn-link question_title" data-toggle="collapse" data-target="#lb_12" aria-expanded="true" aria-controls="lb_12">
+                            <h4 class="display-4">How do I reference questions or answers written by others?</h4>
+                        </button>
+                    </div>
+                    <div id="lb_12" class="collapse" aria-labelledby="lh_12" data-parent="#accordion">
+                        <div class="card-body">
+                            <p>Each question has a URL which contains their question ID. If you want to link to a certain question, you can either write an html tag directly, or type @ followed by the question id to auto-generate an HTML link.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- why are some answers deleted -->
+                <div class="card">
+                    <div class="card-header" id="lh_13">
+                        <button class="btn btn-link question_title" data-toggle="collapse" data-target="#lb_13" aria-expanded="true" aria-controls="lb_13">
+                            <h4 class="display-4">Why are some answers deleted?</h4>
+                        </button>
+                    </div>
+                    <div id="lb_13" class="collapse" aria-labelledby="lh_13" data-parent="#accordion">
+                        <div class="card-body">
+                            <p>Answers will be deleted if they are off-topic or don't follow site etiquette.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- content in right column -->
+    <div class="col-md-6">
+        <div class="panel panel-body right_content">
+            <h2 class="display-4">My Account</h2>
+            <hr class="section_header">
+
+            <div id="accordion">
+                <!-- how do I create an account -->
+                <div class="card">
+                    <div class="card-header" id="rh_1">
+                        <button class="btn btn-link question_title" data-toggle="collapse" data-target="#rb_1" aria-expanded="true" aria-controls="rb_1">
+                            <h4 class="display-4">How do I create an account?</h4>
+                        </button>
+                    </div>
+                    <div id="rb_1" class="collapse" aria-labelledby="rh_1" data-parent="#accordion">
+                        <div class="card-body">
+                            <p>Click the register button on the navigation bar, and create a username or password. Make sure the password is one you can remember.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- how do I reset my password -->
+                <div class="card">
+                    <div class="card-header" id="rh_2">
+                        <button class="btn btn-link question_title" data-toggle="collapse" data-target="#rb_2" aria-expanded="true" aria-controls="rb_2">
+                            <h4 class="display-4">How do I reset the password for my account?</h4>
+                        </button>
+                    </div>
+                    <div id="rb_2" class="collapse" aria-labelledby="rh_2" data-parent="#accordion">
+                        <div class="card-body">
+                            <p>Email the admin.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- how do I update my user profile -->
+                <div class="card">
+                    <div class="card-header" id="rh_3">
+                        <button class="btn btn-link question_title" data-toggle="collapse" data-target="#rb_3" aria-expanded="true" aria-controls="rb_3">
+                            <h4 class="display-4">How do I update my user profile?</h4>
+                        </button>
+                    </div>
+                    <div id="rb_3" class="collapse" aria-labelledby="rh_3" data-parent="#accordion">
+                        <div class="card-body">
+                            <p>Navigate to your user profile page and click the edit button.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- how do I delete my account -->
+                <div class="card">
+                    <div class="card-header" id="rh_4">
+                        <button class="btn btn-link question_title" data-toggle="collapse" data-target="#rb_4" aria-expanded="true" aria-controls="rb_4">
+                            <h4 class="display-4">How do I delete my account?</h4>
+                        </button>
+                    </div>
+                    <div id="rb_4" class="collapse" aria-labelledby="rh_4" data-parent="#accordion">
+                        <div class="card-body">
+                            <p>Email the admin.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="display-4">Etiquette</h2>
+            <hr class="section_header">
+
+            <div id="accordion">
+                <!-- what kind of behavior is expected of users -->
+                <div class="card">
+                    <div class="card-header" id="rh_5">
+                        <button class="btn btn-link question_title" data-toggle="collapse" data-target="#rb_5" aria-expanded="true" aria-controls="rb_5">
+                            <h4 class="display-4">What kind of behavior is expected of users?</h4>
+                        </button>
+                    </div>
+                    <div id="rb_5" class="collapse" aria-labelledby="rh_5" data-parent="#accordion">
+                        <div class="card-body">
+                            <p>Every question, answer, and comment you post on PSO must be crafted with the utmost respect and care. This is a site for classy individuals. Remember you are representing the esteemed and noble University of Pennsylvania.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- how does editting work -->
+                <div class="card">
+                    <div class="card-header" id="rh_6">
+                        <button class="btn btn-link question_title" data-toggle="collapse" data-target="#rb_6" aria-expanded="true" aria-controls="rb_6">
+                            <h4 class="display-4">Who can edit and how does it work?</h4>
+                        </button>
+                    </div>
+                    <div id="rb_6" class="collapse" aria-labelledby="rh_6" data-parent="#accordion">
+                        <div class="card-body">
+                            <p>Any user can edit their own question. If you navigate to a question you've posted, you should see an edit button next to the question title.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- how can I find questions that I am interested in -->
+                <div class="card">
+                    <div class="card-header" id="rh_7">
+                        <button class="btn btn-link question_title" data-toggle="collapse" data-target="#rb_7" aria-expanded="true" aria-controls="rb_7">
+                            <h4 class="display-4">How can I find questions that I am interested in?</h4>
+                        </button>
+                    </div>
+                    <div id="rb_7" class="collapse" aria-labelledby="rh_7" data-parent="#accordion">
+                        <div class="card-body">
+                            <p>You can search simple keywords or by tags.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- how can I report a duplicate answer or question -->
+                <div class="card">
+                    <div class="card-header" id="rh_8">
+                        <button class="btn btn-link question_title" data-toggle="collapse" data-target="#rb_8" aria-expanded="true" aria-controls="rb_8">
+                            <h4 class="display-4">How can I report a duplicate answer or question?</h4>
+                        </button>
+                    </div>
+                    <div id="rb_8" class="collapse" aria-labelledby="rh_8" data-parent="#accordion">
+                        <div class="card-body">
+                            <p>Email the admin.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- what sort of content is prohibited -->
+                <div class="card">
+                    <div class="card-header" id="rh_9">
+                        <button class="btn btn-link question_title" data-toggle="collapse" data-target="#rb_9" aria-expanded="true" aria-controls="rb_9">
+                            <h4 class="display-4">What sort of content is prohibited?</h4>
+                        </button>
+                    </div>
+                    <div id="rb_9" class="collapse" aria-labelledby="rh_9" data-parent="#accordion">
+                        <div class="card-body">
+                            <p>If you wouldn't show it to your grandmother, it doesn't belong on Penn StackOverflow.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- how do I report a spammer -->
+                <div class="card">
+                    <div class="card-header" id="rh_10">
+                        <button class="btn btn-link question_title" data-toggle="collapse" data-target="#rb_10" aria-expanded="true" aria-controls="rb_10">
+                            <h4 class="display-4">Who are spammers and how can I report them?</h4>
+                        </button>
+                    </div>
+                    <div id="rb_10" class="collapse" aria-labelledby="rh_10" data-parent="#accordion">
+                        <div class="card-body">
+                            <p>Email the admin.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- what if I need more help -->
+                <div class="card">
+                    <div class="card-header" id="rh_11">
+                        <button class="btn btn-link question_title" data-toggle="collapse" data-target="#rb_11" aria-expanded="true" aria-controls="rb_11">
+                            <h4 class="display-4">What if I need more help?</h4>
+                        </button>
+                    </div>
+                    <div id="rb_11" class="collapse" aria-labelledby="rh_11" data-parent="#accordion">
+                        <div class="card-body">
+                            <p>Email the admin.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,74 @@
+<!-- HTMl code for comment modal -->
+
+{% if user.is_authenticated %}
+<h4><a href="" data-toggle="modal" data-target="#commentModalLoggedIn_{{ans.id}}">&nbsp;add a comment</a></h4>
+{% else %}
+<h4><a href="" data-toggle="modal" data-target="#commentModalLoggedOut">&nbsp;add a comment</a></h4>
+{% endif %}
+
+<!-- Modal that holds form to submit a comment, appears when user is logged in -->
+<div class="modal fade" id="commentModalLoggedIn_{{ans.id}}" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- title of pop up -->
+            <div class="modal-header">
+                <h4 class="modal-title">Add a Comment</h4>
+            </div>
+            <!-- body of pop up, contains submit form -->
+            <div class="modal-body">
+                <form class="form-horizontal" role="form" action="{% url 'questionpage:comment' question.id ans.id %}" method="post">
+                    {% csrf_token %}
+                    <div id="comment-pop-up" class="form-group">
+                        <textarea name="text" class="form-control" placeholder="My comment..." rows="4" required="required" data-error="Please insert a comment"></textarea>
+                        <div class="help-block with-errors"></div>
+                        <button type="submit" class="btn btn-success">Submit</button>
+                    </div>
+                 </form>
+            </div>
+            <!-- close button -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+      </div>
+    </div>
+</div>
+
+<div class="modal fade" id="commentModalLoggedOut" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- title of pop up -->
+            <div class="modal-header">
+                <h4 class="modal-title">Log into your account before you can comment!</h4>
+            </div>
+            <!-- body of pop up, contains login form -->
+            <div class="modal-body">
+                <form action="{% url 'homepage:login' %}" method="post">
+                    {% csrf_token %}
+                    <div class="row">
+                        <!-- username box -->
+                        <div class="form-group">
+                            <div class="col-md-8">
+                                <label>Username</label>
+                                <input type="username" name="username" class="form-control" placeholder="Enter username">
+                            </div>
+                        </div>
+                    </div><br>
+                    <div class="row">
+                        <!-- password box -->
+                        <div class="col-md-8">
+                            <div class="form-group">
+                                <label>Password</label>
+                                <input type="password" name="password" class="form-control" placeholder="Password">
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-default">Login</button>
+                </form>
+            </div>
+            <!-- close button -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+      </div>
+    </div>
+</div>

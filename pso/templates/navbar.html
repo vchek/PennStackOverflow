@@ -1,0 +1,105 @@
+<!-- HTML code for top navigation bar common to all pages -->
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <!-- creates button to collapse options into drop down menu -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#topNavBar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{% url 'homepage:home' %}">Pennstackoverflow</a>
+        </div>
+
+        <!-- items on top nav bar -->
+        <div class="collapse navbar-collapse" id="topNavBar">
+            <ul class="nav navbar-nav navbar-right ">
+                <li>
+                    <a href="{% url 'homepage:faq' %}">
+                        <span class="glyphicon glyphicon-question-sign"></span>&nbsp;FAQ
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'homepage:contact_us' %}">
+                        <span class="glyphicon glyphicon-comment"></span>&nbsp;Contact Us
+                    </a>
+                </li>
+                {% if not user.is_anonymous %}
+                <li>
+                    <a href="" data-toggle="modal" data-target="#postQuestionModal">
+                        <span class="glyphicon glyphicon-pencil"></span>&nbsp;Post a Question
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'homepage:logout' %}">
+                        <span class="glyphicon glyphicon-log-out"></span>&nbsp;Logout
+                    </a>
+                </li>
+                <li>
+                    {% if not viewer == None %}
+                    <a href="{% url 'userpage:profile' viewer.username %}">
+                        <span class="glyphicon glyphicon-user"></span>&nbsp;My Profile
+                    </a>
+                    {% else %}
+
+
+                    <a href="{% url 'userpage:profile' user.username %}">
+                        <span class="glyphicon glyphicon-user"></span>&nbsp;My Profile
+                    </a>
+                    {% endif%}
+                </li>
+                {% else %}
+                <li>
+                    <!-- can add icon by inserting the line between anchor tags -->
+                    <a href="{% url 'homepage:login' %}">
+                        <span class="glyphicon glyphicon-log-in"></span>&nbsp;Login
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'homepage:register' %}">
+                        <span class="glyphicon glyphicon-plus"></span>&nbsp;Register
+                    </a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- modal for submitting a new question -->
+<div class="modal fade" id="postQuestionModal" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div style="padding-left:10px;padding-right:10px;" id="postQuestionModalContent" class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Post a Question</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" role="form" action="{% url 'questionpage:post_question' %}" method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label>Title</label>
+                        <input name="title" type="text" class="form-control" placeholder="Enter title of question" required="required">
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="body" class="form-control" placeholder="My question..." rows="4" required="required"></textarea>
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <div class="form-group">
+                        <label>Tags</label>
+                        <input name="tags" type="text" class="form-control" placeholder="My tags..." required="required">
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-success">Submit</button>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

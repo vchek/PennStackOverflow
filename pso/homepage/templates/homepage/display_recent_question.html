@@ -1,0 +1,14 @@
+<!-- template code for displaying list of questions -->
+
+{% for question, num in recent_questions reversed %}
+<div class="row">
+    <div class="col-sm-2 num_answers">
+        <h4>{{ num }}</h4><h6>Answers</h6>
+    </div>
+    <div class="col-sm-10">
+        <a href="/questions/{{ question.id }}/"><h4>{{ question.title}}</h4></a>
+        <p> Asked by <a href="/profile/{{question.author}}"> {{question.author}}</a> on {{ question.date_posted }} </p>
+    </div>
+</div>
+<hr class="divider"/>
+{% endfor %}
